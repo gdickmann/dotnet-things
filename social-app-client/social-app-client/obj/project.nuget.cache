@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "4frttxUtwQYUWWBba+Y/+IC0VwcW/R09Zbt5UDkp46cWYoJy3269fwgggv/CQZh2ClbwcIr8RoO0hlRsXNuEsw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gustavo.dickmann\\Documents\\social-app\\social-app-client\\social-app-client\\social-app-client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\google.protobuf\\3.21.5\\google.protobuf.3.21.5.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\grpc.core.api\\2.47.0\\grpc.core.api.2.47.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\grpc.net.client\\2.47.0\\grpc.net.client.2.47.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\grpc.net.common\\2.47.0\\grpc.net.common.2.47.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\grpc.tools\\2.47.0\\grpc.tools.2.47.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.3\\microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}

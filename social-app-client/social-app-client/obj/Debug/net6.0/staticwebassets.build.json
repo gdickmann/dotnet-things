@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ML2+fvJmiAOsB1Hxjs8hSsQfcwXp2B5IAStap2MspM0=",
+  "Source": "social-app-client",
+  "BasePath": "_content/social-app-client",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
