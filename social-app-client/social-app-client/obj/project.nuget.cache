@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4frttxUtwQYUWWBba+Y/+IC0VwcW/R09Zbt5UDkp46cWYoJy3269fwgggv/CQZh2ClbwcIr8RoO0hlRsXNuEsw==",
+  "dgSpecHash": "hl3+Y8760vSVJsVW4G7Yq0UmgHn/3Tb0B0IWpGoLMWhj/Y0vrI8aanWSihN3a7XvYPz8PvePUjaJ3V0Q2UJG8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gustavo.dickmann\\Documents\\social-app\\social-app-client\\social-app-client\\social-app-client.csproj",
+  "projectFilePath": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-client\\social-app-client\\social-app-client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\google.protobuf\\3.21.5\\google.protobuf.3.21.5.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\grpc.core.api\\2.47.0\\grpc.core.api.2.47.0.nupkg.sha512",

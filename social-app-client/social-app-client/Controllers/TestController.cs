@@ -17,12 +17,12 @@ namespace social_app_client.Controllers
         }
 
         [HttpPost("test")]
-        public async Task<IActionResult> SendGRPCMessage(string name)
+        public async Task<IActionResult> SendGRPCMessage(string name, string email, string password)
         {
             var channel = GrpcChannel.ForAddress("https://localhost:7091");
-            var client = new Greeter.GreeterClient(channel);
+            var client = new UserStream.UserStreamClient(channel);
 
-            var reply = await client.SayHelloAsync(new HelloRequest { Name = name });
+            var reply = await client.CreateAsync(new UserGrpc { Name = name, Email = email, Password = password });
             return Ok(reply);
         }
     }

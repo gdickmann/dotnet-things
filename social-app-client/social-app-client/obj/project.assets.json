@@ -468,11 +468,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gustavo.dickmann\\Documents\\social-app\\social-app-client\\social-app-client\\social-app-client.csproj",
+      "projectUniqueName": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-client\\social-app-client\\social-app-client.csproj",
       "projectName": "social-app-client",
-      "projectPath": "C:\\Users\\gustavo.dickmann\\Documents\\social-app\\social-app-client\\social-app-client\\social-app-client.csproj",
+      "projectPath": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-client\\social-app-client\\social-app-client.csproj",
       "packagesPath": "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gustavo.dickmann\\Documents\\social-app\\social-app-client\\social-app-client\\obj\\",
+      "outputPath": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-client\\social-app-client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gustavo.dickmann\\AppData\\Roaming\\NuGet\\NuGet.Config",

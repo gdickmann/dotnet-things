@@ -1,0 +1,31 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "social_app_client";
+
+package user;
+
+service UserStream {
+	rpc Create (UserGrpc) returns (EmptyGrpc);
+	rpc Update (UserGrpc) returns (EmptyGrpc);
+	rpc Delete (UserIdGrpc) returns (EmptyGrpc);
+	rpc Get (UserIdGrpc) returns (UserGrpc);
+	rpc GetAll (EmptyGrpc) returns (UsersGrpc);
+}
+
+message UserGrpc {
+	string name = 1;
+	string email = 2;
+	string password = 3;
+}
+
+message UsersGrpc {
+	repeated UserGrpc users = 1;
+}
+
+message UserIdGrpc {
+	string id = 1;
+}
+
+message EmptyGrpc {
+
+}

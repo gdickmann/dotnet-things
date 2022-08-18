@@ -25,7 +25,6 @@ namespace social_app.Controllers
             {
                 _context.Users.Add(new User
                 {
-                    Id = Guid.NewGuid(),
                     Username = request.Name,
                     Email = request.Email,
                     Password = request.Password

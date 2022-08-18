@@ -7,7 +7,7 @@ namespace social_app.Models.User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; }
         [Required]
         [MaxLength(38)]
         public string Username { get; set; }

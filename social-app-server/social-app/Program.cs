@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGrpcService<GreeterService>();
+app.MapGrpcService<UserService>();
 
 app.UseHttpsRedirection();
 

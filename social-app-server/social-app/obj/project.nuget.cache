@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3YzWzNE7McdS5bhjFhQz+lPsMgTmAC3IXgihN5gVSDetV0cjioSzPXqqbGQd9MBfjQhmKGL46BXoLLpVJWRTWA==",
+  "dgSpecHash": "RC2RWq4E9ETQHWUGNprDuX1fjfO+EEMIWylr/n4GtLuNcIo1yVujP5eXOvCp3GyZ5hJQTenvuih9+PTRx0n1BQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gustavo.dickmann\\Documents\\social-app\\social-app-server\\social-app\\social-app.csproj",
+  "projectFilePath": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\entityframework.core\\7.0.0-beta2\\entityframework.core.7.0.0-beta2.nupkg.sha512",
