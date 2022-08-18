@@ -6,7 +6,7 @@ package user;
 
 service UserStream {
 	rpc Create (UserGrpc) returns (EmptyGrpc);
-	rpc Update (UserGrpc) returns (EmptyGrpc);
+	rpc Update (UpdateUser) returns (EmptyGrpc);
 	rpc Delete (UserIdGrpc) returns (EmptyGrpc);
 	rpc Get (UserIdGrpc) returns (UserGrpc);
 	rpc GetAll (EmptyGrpc) returns (UsersGrpc);
@@ -18,8 +18,16 @@ message UserGrpc {
 	string password = 3;
 }
 
+/** Creating a new message because of the id */
+message UpdateUser {
+	string id = 1;
+	string name = 2;
+	string email = 3;
+	string password = 4;
+}
+
 message UsersGrpc {
-	repeated UserGrpc users = 1;
+	repeated UpdateUser users = 1;
 }
 
 message UserIdGrpc {
