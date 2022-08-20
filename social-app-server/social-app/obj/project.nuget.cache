@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RC2RWq4E9ETQHWUGNprDuX1fjfO+EEMIWylr/n4GtLuNcIo1yVujP5eXOvCp3GyZ5hJQTenvuih9+PTRx0n1BQ==",
+  "dgSpecHash": "Y7HRzQjZkXx0P4RIwNJ1CJV8kPWmaHpDSWkauNh7udRd9Sma7eQQg6S9++s1u2uJbe5Z5bR8CNlFBaioGyyBaQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
   "expectedPackageFiles": [
@@ -64,6 +64,7 @@
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.6\\npgsql.entityframeworkcore.postgresql.6.0.6.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.2\\pomelo.entityframeworkcore.mysql.6.0.2.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\remotion.linq\\1.15.15\\remotion.linq.1.15.15.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -92,6 +93,7 @@
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": [

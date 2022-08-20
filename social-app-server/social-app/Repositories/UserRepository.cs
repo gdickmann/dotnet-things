@@ -1,6 +1,6 @@
 ﻿using social_app.Database;
-using social_app.Models.User;
-using social_app.Models.User.Request;
+using social_app.Models;
+using social_app.Models.Request;
 using System.Data.Entity;
 
 namespace social_app.Repositories

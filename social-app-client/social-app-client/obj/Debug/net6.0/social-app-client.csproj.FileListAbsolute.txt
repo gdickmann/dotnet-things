@@ -88,3 +88,5 @@ C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-a
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\obj\Debug\net6.0\social-app-client.pdb
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\obj\Debug\net6.0\social-app-client.genruntimeconfig.cache
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\obj\Debug\net6.0\ref\social-app-client.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\RabbitMQ.Client.dll

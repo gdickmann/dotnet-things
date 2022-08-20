@@ -1,4 +1,5 @@
 ﻿using social_app.Database;
+using social_app.RabbitMQ.Services;
 using social_app.Repositories;
 
 namespace social_app
@@ -20,10 +21,10 @@ namespace social_app
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddHostedService<PostService>();
 
             services.AddMvc();
             services.AddHttpContextAccessor();
         }
-
     }
 }

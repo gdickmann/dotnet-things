@@ -1,6 +1,6 @@
 ﻿using Grpc.Core;
 using social_app.Database;
-using social_app.Models.User;
+using social_app.Models;
 
 namespace social_app.gRPC.Services
 {
@@ -36,7 +36,7 @@ namespace social_app.gRPC.Services
 
             if (user != null)
             {
-                _context.Users.Update(new User 
+                _context.Users.Update(new User
                 { 
                     Id = Guid.Parse(request.Id),
                     Username = request.Name,

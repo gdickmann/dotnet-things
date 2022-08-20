@@ -1,5 +1,5 @@
-﻿using social_app.Models.User;
-using social_app.Models.User.Request;
+﻿using social_app.Models;
+using social_app.Models.Request;
 
 namespace social_app.Repositories
 {

@@ -1,7 +1,7 @@
 using Grpc.Core;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc;
-using social_app_client.Models;
+using social_app_client.Models.User;
 
 namespace social_app_client.Controllers
 {
