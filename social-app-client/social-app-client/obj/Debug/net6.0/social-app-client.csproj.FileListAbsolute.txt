@@ -90,3 +90,9 @@ C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-a
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\obj\Debug\net6.0\ref\social-app-client.dll
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\MassTransit.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\MassTransit.Abstractions.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\MassTransit.AspNetCoreIntegration.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-client\social-app-client\bin\Debug\net6.0\System.Text.Json.dll

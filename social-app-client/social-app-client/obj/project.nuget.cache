@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bLeKftjXagZrCYdwsOXitqX0okUcEOKmB4yYTUgtuudAK1+KR+rEcwVKVHs8ad7Xj5oRxf5XL1hYYbTSN9JMEw==",
+  "dgSpecHash": "bJmdtMRZHIyStkPuhtsMaHvYnc2n5AmfZ/TF66xk5cOb0oplrTYaWuAnitUB5W4IHHP1TdacfiHTBzsHRYdA3g==",
   "success": true,
   "projectFilePath": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-client\\social-app-client\\social-app-client.csproj",
   "expectedPackageFiles": [
@@ -9,8 +9,21 @@
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\grpc.net.client\\2.47.0\\grpc.net.client.2.47.0.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\grpc.net.common\\2.47.0\\grpc.net.common.2.47.0.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\grpc.tools\\2.47.0\\grpc.tools.2.47.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\masstransit\\8.0.6\\masstransit.8.0.6.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\masstransit.abstractions\\8.0.6\\masstransit.abstractions.8.0.6.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\masstransit.aspnetcore\\7.3.1\\masstransit.aspnetcore.7.3.1.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\masstransit.extensions.dependencyinjection\\7.3.1\\masstransit.extensions.dependencyinjection.7.3.1.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\masstransit.rabbitmq\\8.0.6\\masstransit.rabbitmq.8.0.6.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.3\\microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.18\\microsoft.extensions.configuration.abstractions.3.1.18.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.18\\microsoft.extensions.dependencyinjection.abstractions.3.1.18.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks\\3.1.18\\microsoft.extensions.diagnostics.healthchecks.3.1.18.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks.abstractions\\3.1.18\\microsoft.extensions.diagnostics.healthchecks.abstractions.3.1.18.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.18\\microsoft.extensions.fileproviders.abstractions.3.1.18.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\3.1.18\\microsoft.extensions.hosting.abstractions.3.1.18.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.18\\microsoft.extensions.logging.abstractions.3.1.18.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.options\\3.1.18\\microsoft.extensions.options.3.1.18.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.18\\microsoft.extensions.primitives.3.1.18.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512",
@@ -18,8 +31,14 @@
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.text.json\\6.0.2\\system.text.json.6.0.2.nupkg.sha512",
+    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

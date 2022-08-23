@@ -1,4 +1,4 @@
-﻿using social_app_client.RabbitMQ;
+﻿using social_app_client;
 
 namespace social_app_client
 {
@@ -11,8 +11,6 @@ namespace social_app_client
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IMessageProducer, MessageProducer>();
-
             services.AddMvc();
             services.AddHttpContextAccessor();
         }
