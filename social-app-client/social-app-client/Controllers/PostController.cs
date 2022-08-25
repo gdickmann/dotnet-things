@@ -25,7 +25,7 @@ namespace social_app_client.Controllers
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "users",
+                channel.QueueDeclare(queue: "posts",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -35,7 +35,7 @@ namespace social_app_client.Controllers
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                                     routingKey: "users",
+                                     routingKey: "posts",
                                      basicProperties: null,
                                      body: body);
                 Console.WriteLine(" [x] Sent {0}", message);

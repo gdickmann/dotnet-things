@@ -9,68 +9,34 @@ namespace social_app.RabbitMQ.Services
     public class PostService : BackgroundService
     {
 
-        private readonly IServiceProvider _sp;
-        private readonly ConnectionFactory _factory;
-        private readonly IConnection _connection;
-        private readonly IModel _channel;
-
-        public PostService(IServiceProvider sp)
+        public PostService()
         {
-            _sp = sp;
-
-            _factory = new ConnectionFactory() { HostName = "localhost" };
-
-            _connection = _factory.CreateConnection();
-
-            _channel = _connection.CreateModel();
-
-            _channel.QueueDeclare(
-                queue: "users",
-                durable: false,
-                exclusive: false,
-                autoDelete: false,
-                arguments: null);
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            if (stoppingToken.IsCancellationRequested)
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
             {
-                _channel.Dispose();
-                _connection.Dispose();
-                return Task.CompletedTask;
-            }
+                channel.QueueDeclare(queue: "posts",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
 
-            var consumer = new EventingBasicConsumer(_channel);
-
-            consumer.Received += (model, ea) =>
-            {
-                var body = ea.Body.ToArray();
-
-                var message = Encoding.UTF8.GetString(body);
-
-                Console.WriteLine(" [x] Received {0}", message);
-
-
-                Task.Run(() =>
+                var consumer = new EventingBasicConsumer(channel);
+                consumer.Received += (model, ea) =>
                 {
-                    var chunks = message.Split("|");
-
-                    var hero = new PostRequest();
-                    if (chunks.Length == 7)
-                    {
-                        hero.Title = chunks[1];
-                    }
-
-                    using (var scope = _sp.CreateScope())
-                    {
-                        var db = scope.ServiceProvider.GetRequiredService<IPostRepository>();
-                        db.Create(hero);
-                    }
-                });
-            };
-
-            _channel.BasicConsume(queue: "users", autoAck: true, consumer: consumer);
+                    var body = ea.Body.ToArray();
+                    var message = Encoding.UTF8.GetString(body);
+                    Console.WriteLine(" [x] Received {0}", message);
+                };
+                channel.BasicConsume(queue: "hello",
+                                     autoAck: true,
+                                     consumer: consumer);
+            }
 
             return Task.CompletedTask;
         }
