@@ -26,7 +26,7 @@ namespace social_app.Repositories
                 Id = Guid.NewGuid(),
                 Title = request.Title,
                 Tag = request.Tag,
-                User = author
+                // User = author
             });
             _context.SaveChanges();
         }

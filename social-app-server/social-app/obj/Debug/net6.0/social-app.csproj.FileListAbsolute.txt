@@ -96,3 +96,8 @@ C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-a
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-app\obj\Debug\net6.0\social-app.genruntimeconfig.cache
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-app\obj\Debug\net6.0\ref\social-app.dll
 C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-app\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-app\bin\Debug\net6.0\MassTransit.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-app\bin\Debug\net6.0\MassTransit.Abstractions.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-app\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-app\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\gustavo.dickmann\Documents\dotnet-social-app\social-app-server\social-app\bin\Debug\net6.0\System.Text.Json.dll

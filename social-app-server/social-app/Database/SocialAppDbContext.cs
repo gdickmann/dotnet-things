@@ -20,10 +20,10 @@ namespace social_app.Database
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.HasPostgresExtension("uuid-ossp");
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Posts)
-                .WithOne(p => p.User)
-                .IsRequired();
+            //modelBuilder.Entity<User>()
+            //    .HasMany(u => u.Posts)
+            //    .WithOne(p => p.User)
+            //    .IsRequired();
         }
     }
 }

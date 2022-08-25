@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
 using social_app_client.Models.Post;
 using System.Text;
@@ -11,36 +12,24 @@ namespace social_app_client.Controllers
     {
         
         private readonly ILogger<PostController> _logger;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public PostController(ILogger<PostController> logger)
+        public PostController(ILogger<PostController> logger, IPublishEndpoint publishEndpoint)
         {            
             _logger = logger;
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> Create(PostRequest request)
         {
-            var factory = new ConnectionFactory { HostName = "localhost" };
-
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
+            await _publishEndpoint.Publish<Post>(new
             {
-                channel.QueueDeclare(queue: "users",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
-
-                string message = "Hello World!";
-                var body = Encoding.UTF8.GetBytes(message);
-
-                channel.BasicPublish(exchange: "",
-                                     routingKey: "users",
-                                     basicProperties: null,
-                                     body: body);
-                Console.WriteLine(" [x] Sent {0}", message);
-            }
-
+                Id = Guid.NewGuid(),
+                Author = request.Author,
+                Tag = request.Tag,
+                Title = request.Title
+            });
             return Ok();
         }
     }
