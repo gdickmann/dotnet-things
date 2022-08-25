@@ -13,7 +13,7 @@ namespace social_app_client.Controllers
         private readonly ILogger<PostController> _logger;
 
         public PostController(ILogger<PostController> logger)
-        {            
+        {               
             _logger = logger;
         }
 
@@ -34,7 +34,7 @@ namespace social_app_client.Controllers
                 string message = "Hello World!";
                 var body = Encoding.UTF8.GetBytes(message);
 
-                channel.BasicPublish(exchange: "",
+                channel.BasicPublish(exchange: "posts",
                                      routingKey: "posts",
                                      basicProperties: null,
                                      body: body);
