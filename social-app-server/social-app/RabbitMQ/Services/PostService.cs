@@ -1,7 +1,5 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using social_app.Models.Request;
-using social_app.Repositories;
 using System.Text;
 
 namespace social_app.RabbitMQ.Services
@@ -11,6 +9,12 @@ namespace social_app.RabbitMQ.Services
 
         public PostService()
         {
+            Console.WriteLine("");
+        }
+
+        public override Task StartAsync(CancellationToken cancellationToken)
+        {
+            return base.StartAsync(cancellationToken);
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -33,7 +37,8 @@ namespace social_app.RabbitMQ.Services
                     var message = Encoding.UTF8.GetString(body);
                     Console.WriteLine(" [x] Received {0}", message);
                 };
-                channel.BasicConsume(queue: "hello",
+
+                channel.BasicConsume(queue: "posts",
                                      autoAck: true,
                                      consumer: consumer);
             }
