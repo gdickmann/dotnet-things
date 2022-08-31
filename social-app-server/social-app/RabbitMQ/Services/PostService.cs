@@ -7,11 +7,6 @@ namespace social_app.RabbitMQ.Services
     public class PostService : BackgroundService
     {
 
-        public PostService()
-        {
-            Console.WriteLine("");
-        }
-
         public override Task StartAsync(CancellationToken cancellationToken)
         {
             return base.StartAsync(cancellationToken);

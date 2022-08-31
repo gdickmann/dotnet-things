@@ -1,6 +1,7 @@
 using social_app.Database;
 using Microsoft.EntityFrameworkCore;
 using social_app.gRPC.Services;
+using social_app.RabbitMQ.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,12 @@ builder.Services.AddDbContext<SocialAppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
+
+await new HostBuilder()
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.AddHostedService<PostService>();
+    }).RunConsoleAsync();
 
 var app = builder.Build();
 
