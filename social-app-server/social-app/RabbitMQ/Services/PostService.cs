@@ -16,27 +16,27 @@ namespace social_app.RabbitMQ.Services
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
 
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
+            var connection = factory.CreateConnection();
+            var channel = connection.CreateModel();
+
+            channel.QueueDeclare(queue: "posts",
+                                    durable: false,
+                                    exclusive: false,
+                                    autoDelete: false,
+                                    arguments: null);
+
+            var consumer = new EventingBasicConsumer(channel);
+
+            consumer.Received += (model, ea) =>
             {
-                channel.QueueDeclare(queue: "posts",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+                var body = ea.Body.ToArray();
+                var message = Encoding.UTF8.GetString(body);
+                Console.WriteLine("[x] Received {0}", message);
+            };
 
-                var consumer = new EventingBasicConsumer(channel);
-                consumer.Received += (model, ea) =>
-                {
-                    var body = ea.Body.ToArray();
-                    var message = Encoding.UTF8.GetString(body);
-                    Console.WriteLine(" [x] Received {0}", message);
-                };
-
-                channel.BasicConsume(queue: "posts",
-                                     autoAck: true,
-                                     consumer: consumer);
-            }
+            channel.BasicConsume(queue: "posts",
+                                    autoAck: true,
+                                    consumer: consumer);
 
             return Task.CompletedTask;
         }

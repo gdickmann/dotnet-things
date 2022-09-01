@@ -34,7 +34,7 @@ namespace social_app_client.Controllers
                 string message = "Hello World!";
                 var body = Encoding.UTF8.GetBytes(message);
 
-                channel.BasicPublish(exchange: "posts",
+                channel.BasicPublish(exchange: "",
                                      routingKey: "posts",
                                      basicProperties: null,
                                      body: body);
