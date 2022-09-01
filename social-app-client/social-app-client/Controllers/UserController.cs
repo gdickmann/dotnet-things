@@ -2,6 +2,7 @@ using Grpc.Core;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc;
 using social_app_client.Models.User;
+using social_app_client.Repository.User;
 
 namespace social_app_client.Controllers
 {
@@ -9,22 +10,19 @@ namespace social_app_client.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        /** TODO: implement Datadog */
-        private readonly ILogger<UserController> _logger;
 
-        public UserController(ILogger<UserController> logger)
+        private readonly IUserRepository _repository;
+
+        public UserController(IUserRepository repository)
         {
-            _logger = logger;
+            _repository = repository;
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> Create(UserRequest request)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:7091");
-            var client = new UserStream.UserStreamClient(channel);
-
-            var response = await client.CreateAsync(new UserGrpc { Name = request.Name, Email = request.Email, Password = request.Password }); ;
-            return Ok(response);
+            await _repository.InsertIntoQueue(request);
+            return Ok();
         }
 
         [HttpPut("update")]

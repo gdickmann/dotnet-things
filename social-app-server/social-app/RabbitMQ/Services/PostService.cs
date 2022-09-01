@@ -14,6 +14,10 @@ namespace social_app.RabbitMQ.Services
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            /** This is the simplest RabbitMQ implementation and isn't recommended to be used in production.
+             * However, my focus isn't improving RabbitMQ security for now.
+             * To a more complete and secure implementation, read: https://www.rabbitmq.com/confirms.html
+             */
             var factory = new ConnectionFactory() { HostName = "localhost" };
 
             var connection = factory.CreateConnection();
@@ -31,6 +35,7 @@ namespace social_app.RabbitMQ.Services
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
+
                 Console.WriteLine("[x] Received {0}", message);
             };
 

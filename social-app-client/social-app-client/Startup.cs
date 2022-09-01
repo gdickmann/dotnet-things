@@ -1,4 +1,5 @@
-﻿using social_app_client;
+﻿using social_app_client.Repository.Post;
+using social_app_client.Repository.User;
 
 namespace social_app_client
 {
@@ -11,6 +12,9 @@ namespace social_app_client
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
+
             services.AddMvc();
             services.AddHttpContextAccessor();
         }
