@@ -3623,19 +3623,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\": {}
+    "C:\\Users\\Biscoitinho\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
+      "projectUniqueName": "C:\\Users\\Biscoitinho\\Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
       "projectName": "social-app",
-      "projectPath": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
-      "packagesPath": "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gustavo.dickmann\\Documents\\dotnet-social-app\\social-app-server\\social-app\\obj\\",
+      "projectPath": "C:\\Users\\Biscoitinho\\Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
+      "packagesPath": "C:\\Users\\Biscoitinho\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Biscoitinho\\Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gustavo.dickmann\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Biscoitinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3752,7 +3752,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   },

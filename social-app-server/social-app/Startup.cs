@@ -16,7 +16,9 @@ namespace social_app
                 .Build();
         }
 
-        public void Configure(IApplicationBuilder app, SocialAppDbContext dbContext) {}
+        public void Configure(IApplicationBuilder app, SocialAppDbContext dbContext)
+        {
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {

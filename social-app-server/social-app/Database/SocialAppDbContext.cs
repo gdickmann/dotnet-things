@@ -9,7 +9,10 @@ namespace social_app.Database
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<Post> Posts { get; set; } = null!;
 
-        public SocialAppDbContext() {}
+        public SocialAppDbContext()
+        {
+            Database.EnsureCreated();
+        }
 
         public SocialAppDbContext(DbContextOptions<SocialAppDbContext> options) : base(options) { }
 

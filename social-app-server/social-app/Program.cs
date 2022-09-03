@@ -19,13 +19,8 @@ builder.Services.AddDbContext<SocialAppDbContext>(options =>
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
 
-await new HostBuilder()
-    .ConfigureServices((hostContext, services) =>
-    {
-        services.AddHostedService<PostService>();
-    }).RunConsoleAsync();
-
 var app = builder.Build();
+app.MapGrpcService<UserService>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -34,12 +29,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGrpcService<UserService>();
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
+await new HostBuilder().ConfigureServices((hostContext, services) =>
+    {
+        services.AddHostedService<PostService>();
+    }).RunConsoleAsync();
+
 app.Run();
+
+/** RabbitMQ configuration */
