@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
 using social_app_client.Models.Post;
+using social_app_client.Repositories.Post;
 using System.Text;
 
 namespace social_app_client.Controllers
@@ -9,38 +10,18 @@ namespace social_app_client.Controllers
     [Route("[controller]")]
     public class PostController : ControllerBase
     {
-        
-        private readonly ILogger<PostController> _logger;
 
-        public PostController(ILogger<PostController> logger)
-        {               
-            _logger = logger;
+        private readonly IPostRepository _repository;
+
+        public PostController(IPostRepository repository)
+        {
+            _repository = repository;
         }
 
         [HttpPost("create")]
         public async Task<IActionResult> Create(PostRequest request)
         {
-            var factory = new ConnectionFactory { HostName = "localhost" };
-
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.QueueDeclare(queue: "posts",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
-
-                string message = "Hello World!";
-                var body = Encoding.UTF8.GetBytes(message);
-
-                channel.BasicPublish(exchange: "posts",
-                                     routingKey: "posts",
-                                     basicProperties: null,
-                                     body: body);
-                Console.WriteLine(" [x] Sent {0}", message);
-            }
-
+            _repository.InsertIntoQueue(request);
             return Ok();
         }
     }
