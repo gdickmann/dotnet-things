@@ -27,6 +27,8 @@ namespace social_app.gRPC.Services
             });
             _context.SaveChanges();
 
+            _logger.LogInformation("User successfully created via gRPC", DateTime.UtcNow);
+
             return Task.FromResult(new EmptyGrpc());
         }
 

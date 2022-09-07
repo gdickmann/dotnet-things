@@ -6,6 +6,14 @@ namespace social_app_client.Repositories.Post
 {
     public class PostRepository : IPostRepository
     {
+
+        private readonly ILogger<PostRepository> _logger;
+
+        public PostRepository(ILogger<PostRepository> logger)
+        {
+            _logger = logger;
+        }
+
         public void InsertIntoQueue(PostRequest request)
         {
             var factory = new ConnectionFactory { HostName = "localhost" };
@@ -25,7 +33,8 @@ namespace social_app_client.Repositories.Post
                                      routingKey: "posts",
                                      basicProperties: null,
                                      body: body);
-                Console.WriteLine(" [x] Sent {0}", request);
+
+                _logger.LogInformation("Post sent via RabbitMQ", DateTime.UtcNow);
             }
         }
     }

@@ -11,10 +11,12 @@ namespace social_app.RabbitMQ.Services
     {
 
         private readonly IPostRepository _repository;
+        private readonly ILogger<PostService> _logger;
 
-        public PostService(IPostRepository repository, IServiceScopeFactory factory)
+        public PostService(IPostRepository repository, ILogger<PostService> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)
@@ -41,11 +43,11 @@ namespace social_app.RabbitMQ.Services
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
 
+                _logger.LogInformation("Post received via RabbitMQ", DateTime.UtcNow.ToLongTimeString());
+
                 /** TODO: nullcheck */
                 var post = Newtonsoft.Json.JsonConvert.DeserializeObject<PostRequest>(message);
                 _repository.Create(post);
-
-                Console.WriteLine(" [x] Received {0}", post);
             };
 
             channel.BasicConsume(queue: "posts",

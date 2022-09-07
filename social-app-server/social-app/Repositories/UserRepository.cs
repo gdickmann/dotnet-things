@@ -9,12 +9,10 @@ namespace social_app.Repositories
     {
 
         private readonly SocialAppDbContext _context;
-        private readonly DbSet<User> _dbSet;
 
-        public UserRepository(SocialAppDbContext context, DbSet<User> dbSet)
+        public UserRepository(SocialAppDbContext context)
         {
             _context = context;
-            _dbSet = dbSet;
         }
 
         public void Create(UserRequest user)
