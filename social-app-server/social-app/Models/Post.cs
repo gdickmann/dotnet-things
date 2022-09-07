@@ -6,8 +6,11 @@ namespace social_app.Models
     public class Post
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
+
+        [ForeignKey("User")]
+        public Guid UserId { get; set; }
 
         public User User { get; set; }
 

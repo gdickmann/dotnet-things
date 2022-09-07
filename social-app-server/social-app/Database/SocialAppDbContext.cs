@@ -11,7 +11,10 @@ namespace social_app.Database
 
         public SocialAppDbContext() {}
 
-        public SocialAppDbContext(DbContextOptions<SocialAppDbContext> options) : base(options) { }
+        public SocialAppDbContext(DbContextOptions<SocialAppDbContext> options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,10 +23,10 @@ namespace social_app.Database
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             modelBuilder.HasPostgresExtension("uuid-ossp");
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Posts)
-                .WithOne(p => p.User)
-                .IsRequired();
+            modelBuilder.Entity<Post>()
+                .HasOne(u => u.User)
+                .WithMany(p => p.Posts)
+                .HasForeignKey(u => u.UserId);
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using social_app.Database;
+using social_app.Models.Request;
+using social_app.Repositories;
 using System.Text;
 
 namespace social_app.RabbitMQ.Services
@@ -7,9 +10,11 @@ namespace social_app.RabbitMQ.Services
     public class PostService : BackgroundService
     {
 
-        public PostService()
+        private readonly IPostRepository _repository;
+
+        public PostService(IPostRepository repository, IServiceScopeFactory factory)
         {
-            Console.WriteLine("");
+            _repository = repository;
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)
@@ -35,7 +40,12 @@ namespace social_app.RabbitMQ.Services
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                Console.WriteLine(" [x] Received {0}", message);
+
+                /** TODO: nullcheck */
+                var post = Newtonsoft.Json.JsonConvert.DeserializeObject<PostRequest>(message);
+                _repository.Create(post);
+
+                Console.WriteLine(" [x] Received {0}", post);
             };
 
             channel.BasicConsume(queue: "posts",

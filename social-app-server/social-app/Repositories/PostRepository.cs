@@ -1,7 +1,6 @@
 ﻿using social_app.Database;
 using social_app.Models;
 using social_app.Models.Request;
-using System.Data.Entity;
 
 namespace social_app.Repositories
 {
@@ -9,25 +8,24 @@ namespace social_app.Repositories
     {
 
         private readonly SocialAppDbContext _context;
-        private readonly DbSet<Post> _dbSet;
 
-        public PostRepository(SocialAppDbContext context, DbSet<Post> dbSet)
+        public PostRepository(IServiceScopeFactory factory)
         {
-            _context = context;
-            _dbSet = dbSet;
+            /** Resolving scoped instances due to IHostService in PostService.cs */
+            _context = factory.CreateScope().ServiceProvider.GetRequiredService<SocialAppDbContext>();
         }
 
         public void Create(PostRequest request)
         {
-            var author = _context.Users.Find(request.Author);
-
-            _context.Posts.Add(new Post
+            Post post = new Post
             {
                 Id = Guid.NewGuid(),
                 Title = request.Title,
                 Tag = request.Tag,
-                User = author
-            });
+                UserId = request.Author
+            };
+
+            _context.Posts.Add(post);
             _context.SaveChanges();
         }
 
