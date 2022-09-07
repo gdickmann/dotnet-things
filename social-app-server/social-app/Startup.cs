@@ -20,7 +20,6 @@ namespace social_app
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IUserRepository, UserRepository>();
             services.AddHostedService<PostService>();
 
             services.AddMvc();

@@ -18,16 +18,18 @@ namespace social_app.gRPC.Services
 
         public override Task<EmptyGrpc> Create(UserGrpc request, ServerCallContext context)
         {
-            _context.Users.Add(new User 
-            { 
+            User user = new()
+            {
                 Id = Guid.NewGuid(),
                 Username = request.Name,
                 Email = request.Email,
-                Password = request.Password 
-            });
+                Password = request.Password
+            };
+
+            _context.Users.Add(user);
             _context.SaveChanges();
 
-            _logger.LogInformation("User successfully created via gRPC", DateTime.UtcNow);
+            _logger.LogInformation($"User {user.Id} successfully created via gRPC", DateTime.UtcNow.ToLongTimeString());
 
             return Task.FromResult(new EmptyGrpc());
         }
@@ -46,6 +48,8 @@ namespace social_app.gRPC.Services
                     Password = request.Password 
                 });
                 _context.SaveChanges();
+
+                _logger.LogInformation($"User {request.Id} successfully updated via gRPC", DateTime.UtcNow.ToLongTimeString());
             }
 
             return Task.FromResult(new EmptyGrpc());
@@ -59,6 +63,8 @@ namespace social_app.gRPC.Services
             {
                 _context.Users.Remove(user);
                 _context.SaveChanges();
+
+                _logger.LogInformation($"User {request.Id} successfully deleted via gRPC", DateTime.UtcNow.ToLongTimeString());
             }
 
             return Task.FromResult(new EmptyGrpc());
@@ -67,6 +73,8 @@ namespace social_app.gRPC.Services
         public override Task<UserGrpc> Get(UserIdGrpc request, ServerCallContext context)
         {
             var response = _context.Users.Find(Guid.Parse(request.Id));
+
+            _logger.LogInformation($"Get request from user {request.Id} made via gRPC", DateTime.UtcNow.ToLongTimeString());
 
             return Task.FromResult(new UserGrpc
             { 
@@ -89,6 +97,8 @@ namespace social_app.gRPC.Services
                             Password = user.Password
                         };
             response.Users.AddRange(query.ToArray());
+
+            _logger.LogInformation("Get all request made via gRPC", DateTime.UtcNow.ToLongTimeString());
 
             return Task.FromResult(response);
         }
