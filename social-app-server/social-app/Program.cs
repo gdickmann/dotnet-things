@@ -2,7 +2,8 @@ using social_app.Database;
 using Microsoft.EntityFrameworkCore;
 using social_app.gRPC.Services;
 using social_app.RabbitMQ.Services;
-using social_app.Repositories;
+using social_app.Repositories.Post;
+using social_app.Repositories.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,8 @@ builder.Services.AddDbContext<SocialAppDbContext>(options =>
 });
 
 builder.Services.AddTransient<IPostRepository, PostRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+
 builder.Services.AddHostedService<PostService>();
 
 var app = builder.Build();

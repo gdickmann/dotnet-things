@@ -2,7 +2,7 @@
 using RabbitMQ.Client.Events;
 using social_app.Database;
 using social_app.Models.Request;
-using social_app.Repositories;
+using social_app.Repositories.Post;
 using System.Text;
 
 namespace social_app.RabbitMQ.Services

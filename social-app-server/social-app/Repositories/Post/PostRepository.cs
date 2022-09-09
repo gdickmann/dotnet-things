@@ -1,8 +1,7 @@
 ﻿using social_app.Database;
-using social_app.Models;
 using social_app.Models.Request;
 
-namespace social_app.Repositories
+namespace social_app.Repositories.Post
 {
     public class PostRepository : IPostRepository
     {
@@ -19,7 +18,7 @@ namespace social_app.Repositories
 
         public void Create(PostRequest request)
         {
-            Post post = new(request.Title, request.Tag, request.AuthorId);
+            Models.Post post = new(request.Title, request.Tag, request.AuthorId);
 
             _context.Posts.Add(post);
             _context.SaveChanges();
