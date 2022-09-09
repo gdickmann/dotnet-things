@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
 using social_app_client.Models.Post;
-using social_app_client.Repository.Post;
+using social_app_client.Repositories.Post;
+using System.Text;
 
 namespace social_app_client.Controllers
 {
@@ -9,7 +10,7 @@ namespace social_app_client.Controllers
     [Route("[controller]")]
     public class PostController : ControllerBase
     {
-        
+
         private readonly IPostRepository _repository;
 
         public PostController(IPostRepository repository)
@@ -20,9 +21,6 @@ namespace social_app_client.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create(PostRequest request)
         {
-            if (request is null)
-                return BadRequest();
-
             _repository.InsertIntoQueue(request);
             return Ok();
         }

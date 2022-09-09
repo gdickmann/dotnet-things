@@ -1,11 +1,23 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using social_app.Database;
+using social_app.Models.Request;
+using social_app.Repositories.Post;
 using System.Text;
 
 namespace social_app.RabbitMQ.Services
 {
     public class PostService : BackgroundService
     {
+
+        private readonly IPostRepository _repository;
+        private readonly ILogger<PostService> _logger;
+
+        public PostService(IPostRepository repository, ILogger<PostService> logger)
+        {
+            _repository = repository;
+            _logger = logger;
+        }
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
@@ -30,13 +42,16 @@ namespace social_app.RabbitMQ.Services
                                     arguments: null);
 
             var consumer = new EventingBasicConsumer(channel);
-
             consumer.Received += (model, ea) =>
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
 
-                Console.WriteLine("[x] Received {0}", message);
+                _logger.LogInformation("Post received via RabbitMQ", DateTime.UtcNow.ToLongTimeString());
+
+                /** TODO: nullcheck */
+                var post = Newtonsoft.Json.JsonConvert.DeserializeObject<PostRequest>(message);
+                _repository.Create(post);
             };
 
             channel.BasicConsume(queue: "posts",

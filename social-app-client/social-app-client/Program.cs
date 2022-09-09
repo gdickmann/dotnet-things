@@ -1,5 +1,5 @@
-using social_app_client.Repository.Post;
-using social_app_client.Repository.User;
+using social_app_client.Repositories.Post;
+using social_app_client.Repositories.User;
 
 var builder = WebApplication.CreateBuilder(args);
 

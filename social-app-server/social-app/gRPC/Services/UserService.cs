@@ -1,6 +1,6 @@
 ﻿using Grpc.Core;
-using social_app.Database;
 using social_app.Models;
+using social_app.Repositories.User;
 
 namespace social_app.gRPC.Services
 {
@@ -8,42 +8,35 @@ namespace social_app.gRPC.Services
     {
 
         private readonly ILogger<UserService> _logger;
-        private SocialAppDbContext _context;
+        private readonly IUserRepository _repository;
 
-        public UserService(ILogger<UserService> logger, SocialAppDbContext context)
+        public UserService(ILogger<UserService> logger, IUserRepository repository)
         {
             _logger = logger;
-            _context = context;
+            _repository = repository;
         }
 
         public override Task<EmptyGrpc> Create(UserGrpc request, ServerCallContext context)
         {
-            _context.Users.Add(new User 
-            { 
-                Id = Guid.NewGuid(),
-                Username = request.Name,
-                Email = request.Email,
-                Password = request.Password 
-            });
-            _context.SaveChanges();
+            User user = new(request.Name, request.Email, request.Password);
+
+            _repository.Create(user);
+            _logger.LogInformation($"User {user.Id} successfully created via gRPC", DateTime.UtcNow.ToLongTimeString());
 
             return Task.FromResult(new EmptyGrpc());
         }
 
         public override Task<EmptyGrpc> Update(UpdateUser request, ServerCallContext context)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Id.ToString() == request.Id);
+            var user = _repository.Get(Guid.Parse(request.Id));
 
             if (user != null)
             {
-                _context.Users.Update(new User
-                { 
-                    Id = Guid.Parse(request.Id),
-                    Username = request.Name,
-                    Email = request.Email,
-                    Password = request.Password 
-                });
-                _context.SaveChanges();
+                User updatedUser = new(request.Name, request.Email, request.Password);
+                updatedUser.Id = Guid.Parse(request.Id);
+
+                _repository.Update(updatedUser);
+                _logger.LogInformation($"User {request.Id} successfully updated via gRPC", DateTime.UtcNow.ToLongTimeString());
             }
 
             return Task.FromResult(new EmptyGrpc());
@@ -51,12 +44,12 @@ namespace social_app.gRPC.Services
 
         public override Task<EmptyGrpc> Delete(UserIdGrpc request, ServerCallContext context)
         {
-            var user = _context.Users.Find(Guid.Parse(request.Id));
+            var user = _repository.Get(Guid.Parse(request.Id));
 
             if (user != null)
             {
-                _context.Users.Remove(user);
-                _context.SaveChanges();
+                _repository.Delete(user);
+                _logger.LogInformation($"User {request.Id} successfully deleted via gRPC", DateTime.UtcNow.ToLongTimeString());
             }
 
             return Task.FromResult(new EmptyGrpc());
@@ -64,7 +57,8 @@ namespace social_app.gRPC.Services
 
         public override Task<UserGrpc> Get(UserIdGrpc request, ServerCallContext context)
         {
-            var response = _context.Users.Find(Guid.Parse(request.Id));
+            var response = _repository.Get(Guid.Parse(request.Id));
+            _logger.LogInformation($"Get request from user {request.Id} made via gRPC", DateTime.UtcNow.ToLongTimeString());
 
             return Task.FromResult(new UserGrpc
             { 
@@ -76,20 +70,10 @@ namespace social_app.gRPC.Services
 
         public override Task<UsersGrpc> GetAll(EmptyGrpc request, ServerCallContext context)
         {
-            UsersGrpc response = new UsersGrpc();
-
-            var query = from user in _context.Users
-                        select new UpdateUser()
-                        {
-                            Id = user.Id.ToString(),
-                            Name = user.Username,
-                            Email = user.Email,
-                            Password = user.Password
-                        };
-            response.Users.AddRange(query.ToArray());
+            UsersGrpc response = _repository.GetAll();
+            _logger.LogInformation("Get all request made via gRPC", DateTime.UtcNow.ToLongTimeString());
 
             return Task.FromResult(response);
         }
-
     }
 }

@@ -5,6 +5,15 @@ namespace social_app.Models
 {
     public class User
     {
+
+        public User(string username, string email, string password)
+        {
+            Id = Guid.NewGuid();
+            Username = username;
+            Email = email;
+            Password = password;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }

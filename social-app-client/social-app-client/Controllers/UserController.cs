@@ -1,8 +1,6 @@
-using Grpc.Core;
-using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc;
 using social_app_client.Models.User;
-using social_app_client.Repository.User;
+using social_app_client.Repositories.User;
 
 namespace social_app_client.Controllers
 {
@@ -10,12 +8,11 @@ namespace social_app_client.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-
         private readonly IUserRepository _repository;
 
         public UserController(IUserRepository repository)
         {
-            _repository = repository;
+            _repository= repository;
         }
 
         [HttpPost("create")]
@@ -28,42 +25,29 @@ namespace social_app_client.Controllers
         [HttpPut("update")]
         public async Task<IActionResult> Update(UserRequest request, Guid id)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:7091");
-            var client = new UserStream.UserStreamClient(channel);
-
-            var response = await client.UpdateAsync(new UpdateUser { Id = id.ToString(), Name = request.Name, Email = request.Email, Password = request.Password }); ;
-            return Ok(response);
+            await _repository.UpdateFromQueue(request, id);
+            return Ok();
         }
 
         [HttpDelete("delete")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:7091");
-            var client = new UserStream.UserStreamClient(channel);
-
-            var response = await client.DeleteAsync(new UserIdGrpc { Id = id.ToString() });
-            return Ok(response);
+            await _repository.DeleteFromQueue(id);
+            return Ok();
         }
 
         [HttpGet("get")]
         public async Task<IActionResult> Get(Guid id)
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:7091");
-            var client = new UserStream.UserStreamClient(channel);
-
-            var response = await client.GetAsync(new UserIdGrpc { Id = id.ToString() });
+            var response = await _repository.GetFromQueue(id);
             return Ok(response);
         }
 
         [HttpGet("get/all")]
         public async Task<IActionResult> GetAll()
         {
-            var channel = GrpcChannel.ForAddress("https://localhost:7091");
-            var client = new UserStream.UserStreamClient(channel);
-
-            var response = await client.GetAllAsync(new EmptyGrpc());
+            var response = await _repository.GetAllFromQueue();
             return Ok(response);
         }
-
     }
 }

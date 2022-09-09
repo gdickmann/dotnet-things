@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Biscoitinho\\Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj": {}
+    "C:\\Users\\gustavo.dickmann\\OneDrive - Anheuser-Busch InBev\\My Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Biscoitinho\\Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj": {
+    "C:\\Users\\gustavo.dickmann\\OneDrive - Anheuser-Busch InBev\\My Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Biscoitinho\\Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
+        "projectUniqueName": "C:\\Users\\gustavo.dickmann\\OneDrive - Anheuser-Busch InBev\\My Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
         "projectName": "social-app",
-        "projectPath": "C:\\Users\\Biscoitinho\\Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
-        "packagesPath": "C:\\Users\\Biscoitinho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Biscoitinho\\Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\obj\\",
+        "projectPath": "C:\\Users\\gustavo.dickmann\\OneDrive - Anheuser-Busch InBev\\My Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\social-app.csproj",
+        "packagesPath": "C:\\Users\\gustavo.dickmann\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gustavo.dickmann\\OneDrive - Anheuser-Busch InBev\\My Documents\\Projects\\dotnet-social-app\\social-app-server\\social-app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Biscoitinho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gustavo.dickmann\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -92,6 +92,10 @@
               "target": "Package",
               "version": "[2.1.11, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Npgsql": {
               "target": "Package",
               "version": "[6.0.6, )"
@@ -119,7 +123,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -131,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
