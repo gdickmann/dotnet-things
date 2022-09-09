@@ -5,6 +5,15 @@ namespace social_app.Models
 {
     public class User
     {
+
+        public User(string username, string email, string password)
+        {
+            Id = Guid.NewGuid();
+            Username = username;
+            Email = email;
+            Password = password;
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
@@ -22,6 +31,6 @@ namespace social_app.Models
         [MaxLength(64)]
         public string Password { get; set; }
 
-        public ICollection<Post> Posts { get; set; }
+        public ICollection<Post>? Posts { get; set; }
     }
 }

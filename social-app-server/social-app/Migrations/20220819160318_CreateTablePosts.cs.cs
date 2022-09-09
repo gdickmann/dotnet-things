@@ -33,7 +33,7 @@ namespace social_app.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     Title = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Tag = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: false)
+                    Tag = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: true)
                 },
                 constraints: table =>
                 {

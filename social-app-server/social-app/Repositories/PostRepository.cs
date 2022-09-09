@@ -19,13 +19,7 @@ namespace social_app.Repositories
 
         public void Create(PostRequest request)
         {
-            Post post = new()
-            {
-                Id = Guid.NewGuid(),
-                Title = request.Title,
-                Tag = request.Tag,
-                UserId = request.Author
-            };
+            Post post = new(request.Title, request.Tag, request.AuthorId);
 
             _context.Posts.Add(post);
             _context.SaveChanges();

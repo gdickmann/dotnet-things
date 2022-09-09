@@ -18,13 +18,7 @@ namespace social_app.gRPC.Services
 
         public override Task<EmptyGrpc> Create(UserGrpc request, ServerCallContext context)
         {
-            User user = new()
-            {
-                Id = Guid.NewGuid(),
-                Username = request.Name,
-                Email = request.Email,
-                Password = request.Password
-            };
+            User user = new(request.Name, request.Email, request.Password);
 
             _context.Users.Add(user);
             _context.SaveChanges();
@@ -40,13 +34,10 @@ namespace social_app.gRPC.Services
 
             if (user != null)
             {
-                _context.Users.Update(new User
-                { 
-                    Id = Guid.Parse(request.Id),
-                    Username = request.Name,
-                    Email = request.Email,
-                    Password = request.Password 
-                });
+                User updatedUser = new(request.Name, request.Email, request.Password);
+                updatedUser.Id = Guid.Parse(request.Id);
+
+                _context.Users.Update(updatedUser);
                 _context.SaveChanges();
 
                 _logger.LogInformation($"User {request.Id} successfully updated via gRPC", DateTime.UtcNow.ToLongTimeString());
